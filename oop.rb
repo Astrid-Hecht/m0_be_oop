@@ -92,7 +92,7 @@ class Dragon
       @hunger = @hunger - 1
 
       if @hunger == 0
-
+        @is_hungry = false
         puts "#{@name} is full!"
 
       end
