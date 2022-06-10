@@ -3,23 +3,35 @@
 # it should have a color attribute, that is silver by default
 # it should have a method called "say" that returns whatever string is passed in, with "*~*" at the beginning and end of the string
 class Unicorn
+
   def initialize(name)
+
     @name = name
     @color = "silver"
+
   end
 
   def say(speech)
+
     puts "*~* #{speech} *~*"
+
   end
 end
 
 uni = Unicorn.new("Barbra")
+
+uni.say("hello world")
+
+
+
 #  Write a class called Vampire
 #  it should have a dynamic name attribute
 #  it should have a pet attribute, that is a bat, by default BUT it could be dynamic if info is passed in initially
 #  it should have a thirsty attribute, that is true by default
 #  it should have a drink method. When called, the thirsty attribute changes to false
+
 class Vampire
+
   def initialize(name, pet = "bat")
 
     @name = name
@@ -29,8 +41,11 @@ class Vampire
   end
 
   def drink
+
     @thristy = false
+
   end
+
 end
 
 drac = Vampire.new("Dracula", "thrall")
@@ -46,31 +61,43 @@ psych = Vampire.new("Collin Robinson",)
 #  it should have a eat method. If the dragon eats 4 times, it is no longer hungry
 
 class Dragon
+
   attr_reader :hunger
   attr_reader :is_hungry
 
   def initialize(name, rider, color)
     if (name.is_a?(String) && rider.is_a?(String) && color.is_a?(String))
+
       @name = name
       @rider = rider
       @color = color
       @is_hungry = true
       @hunger = 4
+
     else
+
       raise "Input must be in the form of a string"
+
     end
   end
 
   def eat
     if @hunger == 0
+
       @is_hungry = false
       puts "#{@name} is stuffed!"
+
     else
+
       @hunger = @hunger - 1
+
       if @hunger == 0
+
         puts "#{@name} is full!"
+
       end
     end
+
   end
 end
 
@@ -91,7 +118,7 @@ class Hobbit
   attr_reader :is_adult
   attr_reader :is_old
 
-  def initialize(name, disp, age = 0)
+    def initialize(name, disp, age = 0)
       if (name.is_a?(String) && disp.is_a?(String))
 
           @name = name
@@ -101,9 +128,9 @@ class Hobbit
           @is_adult = false
           @is_old = false
 
-          if name = "frodo" || "Frodo"
+          if name.capitalize == "Frodo"
               @has_ring = true
-            end
+          end
 
           if age > 101
             @is_old = true
@@ -111,29 +138,34 @@ class Hobbit
             @is_adult = true
           end
 
-        else
+      else
 
           raise "Input must be correct datatype"
 
-        end
-  end
-
-  def celebrate_birthday
-
-    @age = @age + 1
-
-    if @age > 101
-      @is_old = true
-      elsif age > 33
-      @is_adult = true
+      end
     end
 
-  end
+
+
+    def celebrate_birthday
+
+      @age = @age + 1
+
+      if @age > 101
+
+        @is_old = true
+        elsif age > 33
+        @is_adult = true
+
+      end
+
+    end
+
 
 end
 
 
-fro = Hobbit.new("Frodo", "adventurous", 31)
+fro = Hobbit.new("FRODO", "adventurous", 31)
 
 bilb = Hobbit.new("Bilbo", "(Re)tired", 99)
 
